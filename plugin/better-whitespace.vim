@@ -461,13 +461,13 @@ command! -range=% PrevTrailingWhitespace call <SID>GotoTrailingWhitespace(1, <li
 
 if !empty(g:better_whitespace_operator)
     " Ensure we only map if no identical, user-defined mapping already exists
-    if (empty(mapcheck(g:better_whitespace_operator, 'x')))
+    if (empty(maparg(g:better_whitespace_operator, 'x')))
         " Visual mode
         exe 'xmap <silent> '.g:better_whitespace_operator.' :StripWhitespace<CR>'
     endif
 
     " Ensure we only map if no identical, user-defined mapping already exists
-    if (empty(mapcheck(g:better_whitespace_operator, 'n')))
+    if (empty(maparg(g:better_whitespace_operator, 'n')))
         " Normal mode (+ space, with line count)
         exe 'nmap <silent> '.g:better_whitespace_operator.'<space> :<C-U>exe ".,+".v:count" StripWhitespace"<CR>'
         " Other motions
